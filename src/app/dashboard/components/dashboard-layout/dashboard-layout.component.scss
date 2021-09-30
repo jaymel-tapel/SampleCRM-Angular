@@ -1,0 +1,32 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.dashboard-container {
+    display: flex;
+}
+
+.dashboard-container--left-panel {
+    min-width: 300px;
+    background-color: $primaryColor;
+}
+
+.dashboard-container--main-panel {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px;
+}
+
+
+
+@include breakpoint(xs) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .dashboard-container--left-panel  {
+        width: 100%;
+    }
+
+    .dashboard-container--main-panel {
+        padding: 30px 0;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="dashboard-menu-container">
+  <div class="dashboard-title">SampleCRM <span>v0.1</span></div>
+
+  <div class="dashboard-menu">
+    <ul class="dashboard-menu--list">
+      <li>
+        <a [routerLink]="['customers']" routerLinkActive="active">
+          <fa-icon [icon]="faUsers" class="menu-icon"></fa-icon>Customer List</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['my-account']" routerLinkActive="active">
+          <fa-icon [icon]="faCog" class="menu-icon"></fa-icon> My Account</a
+        >
+      </li>
+      <li>
+        <a (click)="onLogout()"><fa-icon [icon]="faDoorOpen" class="menu-icon"></fa-icon>Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>

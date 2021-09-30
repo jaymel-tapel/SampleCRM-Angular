@@ -1,0 +1,40 @@
+@import '../../../../styles/variables.scss';
+
+.dashboard-title {
+    padding: 60px 40px 40px;
+    font-size: 28px;
+    color: #fff;
+    font-weight: bold;
+
+    span {
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+
+.dashboard-menu--list {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        width: 100%;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+        margin-right: 30px;
+    }
+
+    a {
+        color: #fff;
+        padding: 20px 40px;
+        display: block;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    a.active,a:hover {
+        background-color: $secondaryColor;
+    }
+}

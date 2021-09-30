@@ -1,0 +1,106 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.customers-page-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    position: relative;
+}
+.search-icon {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    font-size: 16px;
+}
+.customers-table th.active {
+    color: $accentColor;
+}
+.customers-table th fa-icon {
+    margin-left: 5px;
+    display: inline-block;
+}
+.customers-table.desc th.active fa-icon {
+    transform: rotate(180deg);
+}
+.customers-table th:hover {
+    cursor: pointer;
+    color: $accentColor;
+}
+.customers-table th:last-child:hover {
+    color: #000;
+    pointer-events: none;
+}
+
+.customers-button-actions {
+    margin-top: 40px;
+}
+
+.no-results, .loading-results {
+    text-align: center;
+}
+
+.cell-email {
+    color: $primaryColor;
+
+    &:hover {
+        cursor: pointer;
+        color: $accentColor;
+    }
+}
+.action-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+.action-icon:hover {
+    cursor: pointer;
+    color: $accentColor;
+}
+.action-icon.edit {
+    margin-right: 20px;
+}
+.cell-actions {
+    width: 120px;
+}
+
+
+@include breakpoint(xs) {
+    .customers-page-heading {
+        flex-direction: column;
+    }
+    .search-form .form-control {
+        width: 100%;
+    }
+    .customers-page-heading {
+        padding: 30px;
+        padding-top: 0;
+    }
+    .customers-table {
+        margin-left:30px;
+    }
+    .customers-button-actions {
+        padding: 0 30px;
+    }
+}
+
+@include breakpoint(md) {
+    .table th:nth-child(1) {
+        min-width: 80px;
+    }
+    .table th:nth-child(2) {
+        min-width: 140px;
+    }
+    .table th:nth-child(3) {
+        min-width: 140px;
+    }
+    .table th:nth-child(1) {
+
+    }
+    .table td {
+        padding: 15px;
+    }
+
+}

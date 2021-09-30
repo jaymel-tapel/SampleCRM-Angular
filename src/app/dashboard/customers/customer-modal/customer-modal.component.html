@@ -1,0 +1,83 @@
+<div class="customer-modal" [@openClose]="isOpen ? 'open' : 'closed'">
+  <div class="customer-modal-backdrop" (click)="onClose()"></div>
+  <div class="customer-modal-content">
+    <app-alert [alertClass]="'danger'" *ngIf="errorMessage && !isLoading">
+      {{ errorMessage }}
+    </app-alert>
+
+    <form [formGroup]="customerForm" (submit)="onSubmitCustomerForm()"  *ngIf="!isLoading">
+
+      <h2 *ngIf="currentUserId == null">Add New Customer</h2>
+      <ng-container *ngIf="currentUserId != null">
+        <h2 *ngIf="currentUserId != null">Update Customer</h2>
+        <p>Customer Id: <strong>1</strong></p>
+      </ng-container>
+
+      <div class="form-group">
+        <input type="email"  class="form-control" placeholder="Email" formControlName="email" />
+        <div class="form-control-error" *ngIf="customerForm.controls.email.dirty && customerForm.controls.email.errors?.email">
+          Please enter a valid email.
+        </div>
+        <div class="form-control-error" *ngIf="customerForm.controls.email.dirty && customerForm.controls.email.errors?.required">
+            This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="First Name"
+          formControlName="firstName"
+        />
+        <div class="form-control-error" *ngIf="customerForm.controls.email.dirty && customerForm.controls.email.errors?.required">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Last Name"
+          formControlName="lastName"
+        />
+        <div class="form-control-error" *ngIf="customerForm.controls.lastName.dirty && customerForm.controls.lastName.errors?.required">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input dynamicDateInput [type]="birthdayInputType"
+          type="text"
+          class="form-control"
+          placeholder="Birthday"
+          formControlName="birthday"
+        />
+        <div class="form-control-error" *ngIf="customerForm.controls.birthday.dirty && customerForm.controls.birthday.errors?.required">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Phone"
+          formControlName="phone"
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          rows="5"
+          class="form-control"
+          placeholder="Address"
+          formControlName="address"
+        ></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="btn" [ngClass]="{'disabled': customerForm.invalid}">{{ currentUserId == null ? "Add" : "Update" }} Customer</button>
+        <button type="submit" class="btn btn-default" (click)="onClose()">Cancel</button>
+      </div>
+    </form>
+
+    <app-loading-animation *ngIf="isLoading"></app-loading-animation>
+  </div>
+</div>

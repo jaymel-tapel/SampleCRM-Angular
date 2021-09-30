@@ -1,0 +1,49 @@
+<div class="customers-page-heading">
+  <h1>Customer List</h1>
+  
+  <form class="search-form" (submit)="onSubmitSearch()">
+    <input type="text" class="form-control" placeholder="Search"  [(ngModel)]="filterKeyword" [ngModelOptions]="{standalone: true}">
+    <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+  </form>
+</div>
+
+<div class="table-container">
+  <table class="table customers-table" [ngClass]="{'desc': currentSort == 'DESC'}">
+    <thead>
+      <tr>
+        <th (click)="onSort('Id')" [ngClass]="{'active': currentColumn == 'Id'}">Id <fa-icon [icon]="faCaret"></fa-icon></th>
+        <th (click)="onSort('LastName')" [ngClass]="{'active': currentColumn == 'LastName'}">Full Name <fa-icon [icon]="faCaret"></fa-icon></th>
+        <th (click)="onSort('Email')" [ngClass]="{'active': currentColumn == 'Email'}">Email <fa-icon [icon]="faCaret"></fa-icon></th>
+        <th (click)="onSort('CustCode')" [ngClass]="{'active': currentColumn == 'CustCode'}">Customer Code <fa-icon [icon]="faCaret"></fa-icon></th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="isCustomerListLoading">
+        <td colspan="6" class="loading-results">Loading Data...</td>
+      </tr>
+      <tr *ngIf="!isCustomerListLoading && customerList.length == 0">
+        <td colspan="6" class="no-results">No Customer Data</td>
+      </tr>
+      <ng-container *ngIf="!isCustomerListLoading">
+        <tr *ngFor="let customer of customerList">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.lastName + ', ' + customer.firstName | titlecase }}</td>
+          <td class="cell-email" (click)="onOpenEditCustomer(customer.id)">{{ customer.email }}</td>
+          <td>{{ customer.custCode }}</td>
+          <td class="cell-actions">
+            <fa-icon [icon]="faEdit" class="action-icon edit" (click)="onOpenEditCustomer(customer.id)"></fa-icon>
+            <fa-icon [icon]="faTrash" class="action-icon delete" (click)="onDeleteCustomer(customer.id)"></fa-icon>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+<div class="customers-button-actions">
+  <button class="btn btn-success" (click)="onOpenAddCustomer()">Add Customer</button>
+</div>
+
+
+<app-customer-modal [isOpen]="isCustomerModalOpen" [currentUserId]="selectedCustomerId" 
+                    (modalCloseEventEmitter)="onCustomerModalClose($event)" (formSaveEventEmitter)="onCustomerModalFormSave($event)"></app-customer-modal>

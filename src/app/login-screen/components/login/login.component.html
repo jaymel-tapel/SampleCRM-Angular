@@ -1,0 +1,26 @@
+<div class="login-container">
+    <app-alert [alertClass]="'danger'" *ngIf="errorMessage && !isSubmitting">
+        {{ errorMessage }}
+    </app-alert>
+
+    <form [formGroup]="loginForm" (submit)="onLogin()"  *ngIf="!isSubmitting">
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email">
+            <div class="form-control-error" *ngIf="isSubmitAttempted && loginForm.controls.email.errors?.required">
+                Please enter your email.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            <div class="form-control-error" *ngIf="isSubmitAttempted && loginForm.controls.password.errors?.required">
+                Please enter your password.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+    
+    <app-loading-animation *ngIf="isSubmitting"></app-loading-animation>
+
+    <button [routerLink]="[ '/register']" class="btn">Create Account</button>
+</div>

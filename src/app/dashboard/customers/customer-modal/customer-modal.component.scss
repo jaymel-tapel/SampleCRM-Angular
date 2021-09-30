@@ -1,0 +1,50 @@
+@import './../../../../styles/variables.scss';
+@import './../../../../styles/mixins.scss';
+
+
+.customer-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: 100vw;
+    height: 100vh;
+}
+
+.customer-modal-backdrop {
+    background: rgba(0,0,0,0.5);
+    min-width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form-control {
+    width: 100%;
+    resize: none;
+}
+
+input.form-control {
+    padding: 8px 16px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.customer-modal-content {
+    padding: 30px 40px 40px;
+    background-color: #fafafa;
+    position: relative;
+    height: 100vh;
+    max-width: 360px;
+    overflow-y: auto;
+}
+
+.modal-actions .btn:first-child {
+    margin-right: 15px;
+}
+
+@include breakpoint(xs) {
+    .customer-modal {
+        display: none;
+    }
+}

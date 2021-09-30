@@ -1,0 +1,18 @@
+@import '../../../../styles/variables.scss';
+
+.alert-container {
+    padding: 20px;
+    color: $primaryColor;
+    border: 1px solid $primaryColor;
+    margin-bottom: 15px;
+}
+
+.alert-container.success {
+    color: $accentColor;
+    border-color: $accentColor;
+}
+
+.alert-container.danger {
+    color: $dangerColor;
+    border-color: $dangerColor;
+}
