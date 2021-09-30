@@ -44,7 +44,7 @@ input.form-control {
 }
 
 @include breakpoint(xs) {
-    .customer-modal {
-        display: none;
+    .customer-modal-content  {
+        max-width: 100%;
     }
 }
