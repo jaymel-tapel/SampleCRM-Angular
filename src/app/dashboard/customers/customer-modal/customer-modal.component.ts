@@ -10,6 +10,7 @@ import { Observable, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common' ;
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -104,8 +105,6 @@ export class CustomerModalComponent implements OnInit {
         tempObs = this.customerService.updateCustomer(customerUpdate);
       } else {
         tempObs = this.customerService.addCustomer(customerAdd);
-        this.isOpen = false;
-        this.modalCloseEventEmitter.emit(false);
       }
 
       tempObs.pipe(take(1)).subscribe(res => {
@@ -114,10 +113,16 @@ export class CustomerModalComponent implements OnInit {
         } else {
           this.toastr.success("Successfully added customer!");
         }
+        this.isOpen = false;
         this.modalCloseEventEmitter.emit(false);
         this.formSaveEventEmitter.emit(true);
-      }, (error) => {
-        this.errorMessage = "Error submitting data!";
+      }, (error:HttpErrorResponse) => {
+        if(error.error?.Email) {
+          this.errorMessage = error.error?.Email;
+        } else {
+          this.errorMessage = "Error submitting data!";
+        }
+        this.toastr.error("An error occured!");
       });
     }
   }

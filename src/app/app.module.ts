@@ -23,6 +23,7 @@ import { RequestAuthInterceptor } from './core/interceptor/request-auth.intercep
     CoreModule,
     
     ToastrModule.forRoot({
+      preventDuplicates: true,
       timeOut: 5000,
       tapToDismiss: false,
       positionClass: 'toast-bottom-right',
