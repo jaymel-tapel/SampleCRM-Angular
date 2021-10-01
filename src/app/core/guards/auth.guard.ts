@@ -14,15 +14,15 @@ export class AuthGuard implements CanActivate {
     }
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
         if(this.authService.currentLoggedInUser == null) {
+            this.toastr.warning("Unauthorized access!");
             this.router.navigate(['/']);
+            return false;
         } else {
-            let today = new Date();
-            let tokenExpiration = new Date(this.authService.currentLoggedInUser.Token.Expires);
-
-            if(tokenExpiration.getTime() < today.getTime()) {
+            if(!this.authService.isCurrentUserTokenValid()) {
                 this.authService.logout();
                 this.toastr.warning("Session expired!");
                 this.router.navigate(['/']);
+                return false;
             }
         }
         return true;
