@@ -1,0 +1,10 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+
+@include breakpoint(xs) {
+    .my-account-container {
+        padding: 30px;
+    }
+}
+
