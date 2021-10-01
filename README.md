@@ -1,4 +1,5 @@
 # SampleCRM-Angular
+This project is built with Angular 12
 
 ## Module List 
 
