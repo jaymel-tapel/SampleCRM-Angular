@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   isSubmitting:boolean = false;
   isSubmitAttempted:boolean = false;
-  errorMessage:string;
+  errorMessage:string = '';
 
   constructor(private authService:AuthService, private toastr: ToastrService, private router:Router) { }
 
@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
 
   onRegister() {
     this.isSubmitAttempted = true;
+    this.errorMessage = '';
 
     if(this.registerForm.valid) {
       let registrationFormData:RegistrationFormModel = {
@@ -41,7 +42,6 @@ export class RegisterComponent implements OnInit {
   
         this.isSubmitting = true;
         this.authService.register(registrationFormData).subscribe(res => {
-          console.log(res);
           this.isSubmitAttempted = false;
           this.isSubmitting = false;
           this.toastr.success("You can go use your account now to login.", "Registration Successful!");
