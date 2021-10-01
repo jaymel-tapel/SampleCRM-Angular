@@ -41,12 +41,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
 
     this.loginErrorSubscription = this.authService.loginError$.subscribe((res:HttpErrorResponse) => {
-      if(res.status == 400) {
+      if(res.status == 400 || res.status == 401) {
         this.errorMessage = "Invalid Email or Password!";
-      } else if (res.status == 500) {
-        this.errorMessage = "Server Error!";
-      } else {
-        this.errorMessage = "Server Error!";
+      }else {
+        this.errorMessage = "Unable to connect to server";
       }
     });
   }
