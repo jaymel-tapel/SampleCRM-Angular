@@ -67,6 +67,7 @@ export class CustomerModalComponent implements OnInit {
     if(changes.isOpen.currentValue == true && this.currentUserId != null) {
       this.isLoading = true;
       this.errorMessage = "";
+      this.customerForm.reset();      
       this.customerService.getCustomerById(this.currentUserId).pipe(take(1)).subscribe((res:any) => {
         this.customerForm.patchValue(res);
         this.birthdayInputType = 'date';
