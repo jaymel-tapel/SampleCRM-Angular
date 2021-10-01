@@ -66,17 +66,16 @@
     width: 120px;
 }
 
-
+.table th:nth-child(1), .table td:nth-child(1) {
+    min-width: 80px;
+}
+.table th:nth-child(2), .table td:nth-child(2) {
+    min-width: 140px;
+}
+.table th:nth-child(3), .table td:nth-child(3) {
+    min-width: 140px;
+}
 @include breakpoint(md) {
-    .table th:nth-child(1) {
-        min-width: 80px;
-    }
-    .table th:nth-child(2) {
-        min-width: 140px;
-    }
-    .table th:nth-child(3) {
-        min-width: 140px;
-    }
     .table td {
         padding: 15px;
     }
