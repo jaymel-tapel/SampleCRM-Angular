@@ -43,8 +43,8 @@ The dashboard contains the dashboard menu on the left side and the main content 
 ### Editing Customer
 1. Go to the Customers Dashboard.
 2. If you want to edit a customer, click the pencil icon below the Actions column of the customer's entry row.
-3. It will show a similar modal for the customer's form but this time it has the customer's saved information. Change the
-4. fields you want to edit and click **Update Customer** button.
+3. It will show a similar modal for the customer's form but this time it will load the customer's saved information.
+4. Change the fields you want to edit and click **Update Customer** button.
 
 ### Deleting Customer 
 1. Beside the edit icon, you can find a trash can icon, if you click it, you will be asked to confirm if you want to delete the customer. 
