@@ -49,7 +49,6 @@ The dashboard contains the dashboard menu on the left side and the main content 
 ### Deleting Customer 
 1. Beside the edit icon, you can find a trash can icon, if you click it, you will be asked to confirm if you want to delete the customer. 
 2. Press okay if you are sure to proceed or cancel if not.
-\
 
 ## To be added in the future
 - User Profile and Change Password
