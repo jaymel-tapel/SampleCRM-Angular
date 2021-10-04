@@ -13,7 +13,7 @@ This project is built with:
 **Shared Module** contains Loading animation component and alert component\
 \
 \
-\
+
 
 ## How to use
 
