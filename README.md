@@ -1,5 +1,10 @@
 # SampleCRM-Angular
-This project is built with Angular 12
+This project is built with:
+- Angular 12.2.7
+- Node 14.17.6
+- npm 6.14.15
+- @fortawesome/angular-fontawesome 0.9
+- ngx-toastr 14.1.3
 
 ## Module List 
 
@@ -25,7 +30,7 @@ This project is built with Angular 12
 - Alert component
 
 
-## How to use
+## Installation
 1. **npm install** to install dependencies
 2. Edit apiURL environments property to your backend server URL
 
