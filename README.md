@@ -7,11 +7,13 @@ This project is built with:
 - ngx-toastr 14.1.3
 
 ## Module List 
-**Core Module** contains directives, guard, interceptor, services
-**Login Screen Module** contains login screen layout component, login component and register component 
-**Dashboard Module** contains dashboard layout component, dashboard menu component and customers component
-**Shared Module** contains Loading animation component and alert component
-
+**Core Module** contains directives, guard, interceptor, services\
+**Login Screen Module** contains login screen layout component, login component and register component \
+**Dashboard Module** contains dashboard layout component, dashboard menu component and customers component\
+**Shared Module** contains Loading animation component and alert component\
+\
+\
+\
 
 ## How to use
 
