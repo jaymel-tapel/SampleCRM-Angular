@@ -12,7 +12,7 @@ This project is built with:
 **Dashboard Module** contains dashboard layout component, dashboard menu component and customers component\
 **Shared Module** contains Loading animation component and alert component\
 \
-\
+
 
 
 ## How to use
