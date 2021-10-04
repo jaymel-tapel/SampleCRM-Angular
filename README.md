@@ -10,7 +10,7 @@ This project is built with:
 **Core Module** contains directives, guard, interceptor, services\
 **Login Screen Module** contains login screen layout component, login component and register component \
 **Dashboard Module** contains dashboard layout component, dashboard menu component and customers component\
-**Shared Module** contains Loading animation component and alert component\
+**Shared Module** contains Loading animation component and alert component
 
 
 
