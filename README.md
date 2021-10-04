@@ -17,7 +17,7 @@ This project is built with:
 
 ## How to use
 
-### App Configuration 
+### How to run
 1. **npm install** to install dependencies
 2. Edit apiURL environments property to your backend server URL
 3. After installing dependenices and configuring apiURL, enter **ng serve** on your command line to test the app.
