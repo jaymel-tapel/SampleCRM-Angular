@@ -23,25 +23,25 @@ This project is built with:
 3. After installing dependenices and configuring apiURL, enter **ng serve** on your command line to test the app.
 
 ### Registration
-1. On the login screen, click the **Create Account** button, you be redirected to the registration page.
+1. On the login screen, click the **Create Account** button, you be redirected to the registration page (http://localhost:4200/register).
 2. Fill up the registration form and submit. 
 3. Once done, you will be automatically redirected to login page again.
 
 ### Login
-1. Fill up the login form with your correction email and password. 
-2. If successful, you will be redirected to the CRM dashboard. 
+1. On the login screen (http://localhost:4200/login), fill up the login form with your correction email and password . 
+3. If successful, you will be redirected to the CRM dashboard. 
 
 ### Dashboard Overview
 The dashboard contains the dashboard menu on the left side and the main content on the right. By default, you will be in the Customers Dashboard after login which shows a customer list table with search/filter at the top. You can click the table headers to sort by which column you want and you can click the current active column to toggle the order from descending to ascending and vice versa.
 
 ### Adding Customer
-1. Go to the Customers Dashboard.
+1. Go to the Customers Dashboard (http://localhost:4200/dashboard/customers).
 2. Below the customer list table, you can find the **Add Customer** Button.
 3. Click it to show the Add Customer Modal which contains a form which you can use to add a customer entry to the customer list.
 4. Just fill up the fields and click **Add Customer** to submit. The table should refresh automatically.
 
 ### Editing Customer
-1. Go to the Customers Dashboard.
+1. Go to the Customers Dashboard (http://localhost:4200/dashboard/customers).
 2. If you want to edit a customer, click the pencil icon below the Actions column of the customer's entry row.
 3. It will show a similar modal for the customer's form but this time it will load the customer's saved information.
 4. Change the fields you want to edit and click **Update Customer** button.
