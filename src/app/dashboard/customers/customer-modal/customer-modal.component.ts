@@ -11,6 +11,8 @@ import { take } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common' ;
 import { HttpErrorResponse } from '@angular/common/http';
+import { NotEmptyString } from 'src/app/core/validator/input-empty.validator';
+import { DateTodayOrOlder } from 'src/app/core/validator/date-today-or-older.validator';
 
 
 @Component({
@@ -44,9 +46,9 @@ export class CustomerModalComponent implements OnInit {
   
   customerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    birthday: new FormControl('', Validators.required),
+    firstName: new FormControl('', [Validators.required, NotEmptyString]),
+    lastName: new FormControl('', [Validators.required, NotEmptyString]),
+    birthday: new FormControl('', [Validators.required, DateTodayOrOlder]),
     phone: new FormControl(''),
     address: new FormControl(''),
   });
@@ -94,6 +96,7 @@ export class CustomerModalComponent implements OnInit {
         address: this.customerForm.get("address")?.value
       };
 
+      this.isLoading = true;
       let tempObs:Observable<any>;
       if(this.currentUserId) {
         // repurpose customer add form data for user update
@@ -114,6 +117,7 @@ export class CustomerModalComponent implements OnInit {
         } else {
           this.toastr.success("Successfully added customer!");
         }
+        this.isLoading = false;
         this.isOpen = false;
         this.modalCloseEventEmitter.emit(false);
         this.formSaveEventEmitter.emit(true);
@@ -123,6 +127,7 @@ export class CustomerModalComponent implements OnInit {
         } else {
           this.errorMessage = "Error submitting data!";
         }
+        this.isLoading = false;
         this.toastr.error("An error occured!");
       });
     }

@@ -5,14 +5,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    DynamicDateInputDirective
+    DynamicDateInputDirective,
+    
   ],
   imports: [
     CommonModule,
     HttpClientModule 
   ],
   exports: [
-    DynamicDateInputDirective,
+    DynamicDateInputDirective
   ],
 })
 export class CoreModule { }

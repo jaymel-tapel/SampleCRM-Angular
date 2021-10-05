@@ -3,7 +3,7 @@
   
   <form class="search-form" (submit)="onSubmitSearch()">
     <input type="text" class="form-control" placeholder="Search"  [(ngModel)]="filterKeyword" [ngModelOptions]="{standalone: true}">
-    <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+    <fa-icon [icon]="faSearch" class="search-icon" (click)="onSubmitSearch()"></fa-icon>
   </form>
 </div>
 

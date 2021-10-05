@@ -29,7 +29,7 @@
           placeholder="First Name"
           formControlName="firstName"
         />
-        <div class="form-control-error" *ngIf="customerForm.controls.email.dirty && customerForm.controls.email.errors?.required">
+        <div class="form-control-error" *ngIf="customerForm.controls.firstName.dirty && ( customerForm.controls.firstName.errors?.required ||  customerForm.controls.firstName.errors?.empty )" >
           This field is required.
         </div>
       </div>
@@ -40,7 +40,7 @@
           placeholder="Last Name"
           formControlName="lastName"
         />
-        <div class="form-control-error" *ngIf="customerForm.controls.lastName.dirty && customerForm.controls.lastName.errors?.required">
+        <div class="form-control-error" *ngIf="customerForm.controls.lastName.dirty && ( customerForm.controls.lastName.errors?.required || customerForm.controls.lastName.errors?.empty )">
           This field is required.
         </div>
       </div>
@@ -53,6 +53,9 @@
         />
         <div class="form-control-error" *ngIf="customerForm.controls.birthday.dirty && customerForm.controls.birthday.errors?.required">
           This field is required.
+        </div>
+        <div class="form-control-error" *ngIf="customerForm.controls.birthday.dirty && customerForm.controls.birthday.errors?.dateGreaterThanToday">
+          Invalid birthday.
         </div>
       </div>
       <div class="form-group">
