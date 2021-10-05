@@ -10,8 +10,12 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   currentLoggedInUser:User|null;
-  isAuthenticated$:Subject<boolean> = new Subject();
-  loginError$:Subject<HttpErrorResponse> = new Subject();
+
+  private isAuthenticated$:Subject<boolean> = new Subject();
+  private loginError$:Subject<HttpErrorResponse> = new Subject();
+
+  isAuthenticatedSource = this.isAuthenticated$.asObservable();
+  loginErrorSource = this.loginError$.asObservable();
 
   constructor(private http: HttpClient) {
     this.autoLogin();

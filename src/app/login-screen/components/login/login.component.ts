@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router:Router, private authService:AuthService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.authSubscription =  this.authService.isAuthenticated$.subscribe((res:boolean) => {
+    this.authSubscription =  this.authService.isAuthenticatedSource.subscribe((res:boolean) => {
       if(res) {
         this.isSubmitAttempted = false;
         this.isSubmitting = false;
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.loginErrorSubscription = this.authService.loginError$.subscribe((res:HttpErrorResponse) => {
+    this.loginErrorSubscription = this.authService.loginErrorSource.subscribe((res:HttpErrorResponse) => {
       if(res.status == 400 || res.status == 401) {
         this.errorMessage = "Invalid Email or Password!";
       }else {
